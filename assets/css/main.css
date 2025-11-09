@@ -194,7 +194,12 @@ button:hover {
     margin: 0.4rem 1rem 1.1rem;
   }
 
+  ul {
+    padding: 0 2rem 0;
+  }
+
   address {
     margin: 0.4rem 1rem 0;
   }
 }
+
