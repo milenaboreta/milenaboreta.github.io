@@ -82,6 +82,12 @@ details {
   font-size: 0.7rem;
   margin: 1rem 2rem 0;
   inline-size: fit-content;
+  block-size: 1.2rem; /* height needs to be hardcoded for animation to work */
+  transition: 0.3s; /* adds slide in and out" animation to contents */
+}
+
+details[open] {
+  block-size: 4.9rem; /* height needs to be hardcoded for animation to work */
 }
 
 summary {
@@ -100,11 +106,11 @@ details[open] > summary {
   border-bottom: 0.2rem solid transparent;
 }
 
-/* Triangle */
+/* Triangle marker */
 
 summary::after {
   content: "";
-  transition: 0.2s;
+  transition: 0.3s;
   border-top: 0.4rem solid #1c1c1c;
   border-inline: 0.25rem solid transparent;
 }
@@ -116,6 +122,21 @@ details[open] > summary::after {
 summary::-webkit-details-marker {
   display: none;
 }
+
+/* end of snippet */
+
+/* <details> content slow fade-in and fade-out */
+
+details::details-content {
+  opacity: 0;
+  transition: opacity 0.5s, content-visibility 0.5s allow-discrete;
+}
+
+details[open]::details-content {
+  opacity: 1;
+}
+
+/* end of snippet */
 
 button {
   color: inherit;
@@ -129,10 +150,6 @@ button {
 
 button:hover {
   text-decoration: underline;
-}
-
-details[open] > button {
-  animation: fadeIn 0.5s;
 }
 
 picture > img {
