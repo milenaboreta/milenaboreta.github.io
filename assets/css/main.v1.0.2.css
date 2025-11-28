@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+/* Custom typeface - Montserrat */
+
+/* Regular */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* General styling */
+
+body {
+  background-color: whitesmoke;
+  color: #1c1c1c;
+  font-family: Montserrat, Calibri, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  margin: 0;
+}
+
+.warning {
+  background: #ffdddd;
+  color: #a00;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+  padding: 0.1rem;
+}
+
+.site-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-block-size: 100vh;
+}
+
+.site-main {
+  display: block;
+  max-inline-size: 34rem;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+details {
+  font-size: 0.7rem;
+  margin: 1rem 2rem 0;
+  inline-size: fit-content;
+  block-size: 1.2rem; /* height needs to be hardcoded for animation to work */
+  transition: 0.3s; /* adds slide in and out" animation to contents */
+}
+
+details[open] {
+  block-size: 4.9rem; /* height needs to be hardcoded for animation to work */
+}
+
+summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+details[open] > summary {
+  border-bottom: 0.2rem solid transparent;
+}
+
+/* Triangle marker */
+
+summary::after {
+  content: "";
+  transition: 0.3s;
+  border-top: 0.4rem solid #1c1c1c;
+  border-inline: 0.25rem solid transparent;
+}
+
+details[open] > summary::after {
+  transform: rotate(-180deg);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* end of snippet */
+
+/* <details> content slow fade-in and fade-out */
+
+details::details-content {
+  opacity: 0;
+  transition: opacity 0.5s, content-visibility 0.5s allow-discrete;
+}
+
+details[open]::details-content {
+  opacity: 1;
+}
+
+/* end of snippet */
+
+button {
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+picture > img {
+  border-radius: 50%;
+  border: 0.05rem #d0d0d0 solid;
+  aspect-ratio: 1/1;
+  display: block;
+  margin: 1rem auto 1rem;
+  inline-size: 8rem;
+}
+
+header > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.flag {
+  display: block;
+  margin: 0;
+  block-size: 1.8rem;
+}
+
+header > p {
+  text-align: center;
+  margin: 0.4rem auto 0;
+}
+
+hr {
+  background-color: #d0d0d0;
+  border: none;
+  margin: 1.1rem auto;
+  block-size: 0.05rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0 2rem 0;
+}
+
+section > p {
+  margin: 0.4rem 2rem 1.1rem;
+}
+
+ul {
+  margin: 0.4rem 6rem 1.1rem 2rem;
+  list-style-type: square;
+}
+
+li {
+  margin: 0.4rem 0;
+}
+
+address {
+  font-style: normal;
+  margin: 0.4rem 2rem 0;
+}
+
+a {
+  color: #2653dc;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer > p {
+  font-size: 0.7rem;
+  text-align: center;
+  margin-block-end: 1rem;
+}
+
+/* CSS for phone */
+
+@media (max-width: 580px) {
+  picture > img {
+    inline-size: 6.5rem;
+  }
+
+  h2 {
+    margin: 0 1rem 0;
+  }
+
+  section > p,
+  ul {
+    margin: 0.4rem 1rem 1.1rem;
+  }
+}
